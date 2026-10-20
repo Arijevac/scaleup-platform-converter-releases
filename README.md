@@ -11,8 +11,10 @@ No Python or Java installation is required. There is no Windows installer.
 
 ## Updates
 
-The portable application checks for a newer stable release once at startup.
-Choose **Update now** or **Later**. Updates verify the archive SHA-256 and complete file inventory,
+The portable application checks at startup and then every four hours, without overlapping requests.
+An inline notice waits until technical processing, AI work and dialogs have finished.
+It does not pop up or take focus. Choose **Update now** or **Later**; Later hides that release version
+for the rest of the session. Updates verify the archive SHA-256 and complete file inventory,
 wait for active technical processing, retain the previous application folder, and attempt recovery
 if the new version does not confirm startup. Settings and protected ChatGPT sign-in records
 remain in the current Windows user's LocalAppData folder.
