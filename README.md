@@ -15,8 +15,12 @@ The portable application checks at startup and then every four hours, without ov
 An inline notice waits until technical processing, AI work and dialogs have finished.
 It does not pop up or take focus. Choose **Update now** or **Later**; Later hides that release version
 for the rest of the session. Updates verify the archive SHA-256 and complete file inventory,
-wait for active technical processing, retain the previous application folder, and attempt recovery
-if the new version does not confirm startup. Settings and protected ChatGPT sign-in records
+wait for active technical processing, update individual files inside the original folder without renaming it,
+and keep a verified backup in `%LOCALAPPDATA%/ScaleUP Platform Converter/updates/<id>/previous-version`.
+They attempt recovery in the same original folder if the new version does not confirm startup.
+The in-place method is bundled in 0.1.16: an update started by 0.1.15 or earlier still uses its old
+folder-swap helper once; subsequent updates started by 0.1.16 use the new method.
+Settings and protected ChatGPT sign-in records
 remain in the current Windows user's LocalAppData folder.
 
 Each published version includes a portable ZIP, matching `.sha256` file and `scaleup-update.json`.
