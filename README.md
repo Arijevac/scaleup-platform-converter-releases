@@ -1,28 +1,53 @@
 # ScaleUP Platform Converter
 
-Public download and update repository for the Windows x64 portable application.
-Application source code and user data are not stored in this repository.
+Official Windows x64 **portable downloads and updates**. Current stable release:
+[1.0.3](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.0.3).
 
-## Download
+This repository contains release artifacts and download documentation. Application
+source is maintained separately in a **private repository**; the application is
+not publicly open source. Client videos, sign-in records and review evidence are
+not stored in either repository.
 
-Published packages appear on the [Releases page](https://github.com/Arijevac/scaleup-platform-converter-releases/releases).
-Extract the complete ZIP and open `ScaleUP Platform Converter/ScaleUP Platform Converter.exe`.
-No Python or Java installation is required. There is no Windows installer.
+## Download and use
 
-## Updates
+Download the versioned portable ZIP from [Releases](https://github.com/Arijevac/scaleup-platform-converter-releases/releases),
+extract the complete folder, and run **ScaleUP Platform Converter.exe**. Keep its
+EXE and accompanying files together. No installer, Python or Java installation
+is required. Keep videos and personal files outside the application folder.
 
-The portable application checks at startup and then every four hours, without overlapping requests.
-An inline notice waits until technical processing, AI work and dialogs have finished.
-It does not pop up or take focus. Choose **Update now** or **Later**; Later hides that release version
-for the rest of the session. Updates verify the archive SHA-256 and complete file inventory,
-wait for active technical processing, update individual files inside the original folder without renaming it,
-and keep a verified backup in `%LOCALAPPDATA%/ScaleUP Platform Converter/updates/<id>/previous-version`.
-They attempt recovery in the same original folder if the new version does not confirm startup.
-The in-place method is bundled in 0.1.16: an update started by 0.1.15 or earlier still uses its old
-folder-swap helper once; subsequent updates started by 0.1.16 use the new method.
-Settings and protected ChatGPT sign-in records
-remain in the current Windows user's LocalAppData folder.
+Choose a platform, drop a finished video and click Convert. Original backups are
+enabled by default in Windows Videos / ScaleUP Backups. Advanced options > Backup
+settings changes the location or disables future backups. Technical conversion
+is local. Connected Roku AI review automatically sends sampled video frames to
+OpenAI; see DATA_HANDLING.md inside the portable folder.
 
-Each published version includes a portable ZIP, matching `.sha256` file and `scaleup-update.json`.
-Do not rename or replace these release assets. A new version must use a new release tag.
-Keep your videos and other personal files outside the application folder.
+## Updates and integrity
+
+The app checks at startup and every four hours. An inline notice waits until
+technical processing, AI work and dialogs finish; it does not interrupt editing
+or take focus. Choose Update now or Later.
+
+Updates validate SHA-256 and the complete file inventory, replace managed files
+inside the same program folder, and keep previous program files under
+`%LOCALAPPDATA%/ScaleUP Platform Converter/updates/<id>/previous-version`.
+Startup failure attempts recovery. Settings and protected ChatGPT sign-in stay
+in LocalAppData. The old folder-swap transition applies only to updates started
+by versions 0.1.15 and earlier.
+
+Each release contains a versioned ZIP, its `.sha256` file and
+`scaleup-update.json`. Never rename/replace published assets; new builds use new
+versions. **The EXE is unsigned.** Hashes verify agreement with published
+metadata, not independent publisher identity or freedom from vulnerabilities.
+Do not disable Windows protection to run the app; company IT can review the
+official artifact under its normal policy.
+
+## Notices and support
+
+SECURITY.md, DATA_HANDLING.md, THIRD_PARTY_NOTICES.md, dependency inventory and
+license texts are included in the portable folder. Complete matching native
+dependency source/build-material provision remains a tracked task in the
+notices; a completed license/security audit is not claimed.
+
+Report suspected security issues to the maintainer through an existing private
+company channel. Do not post credentials, client material or unredacted logs in
+public issues.
