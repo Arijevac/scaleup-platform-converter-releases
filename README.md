@@ -1,7 +1,7 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 **portable downloads and updates**. Current stable release:
-[1.0.3](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.0.3).
+[1.0.4](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.0.4).
 
 This repository contains release artifacts and download documentation. Application
 source is maintained separately in a **private repository**; the application is
@@ -20,6 +20,22 @@ enabled by default in Windows Videos / ScaleUP Backups. Advanced options > Backu
 settings changes the location or disables future backups. Technical conversion
 is local. Connected Roku AI review automatically sends sampled video frames to
 OpenAI; see DATA_HANDLING.md inside the portable folder.
+
+## Optional phone checks
+
+Version 1.0.4 adds **AI checks > Phone number** for every platform. Enter the
+expected number once; results separately check visible digits, written format,
+spoken digits and consistent use of a spoken leading 1. Graphics and speech may
+use different forms. Roku and phone reviews can run in parallel after technical
+analysis, without waiting for each other or blocking technical Convert.
+
+English speech recognition runs locally on the CPU. First use automatically
+downloads about 497 MB of pinned, SHA-256-verified speech support into LocalAppData,
+outside the program folder and reused across updates. Audio is not uploaded;
+sampled frames and transcript text are sent to OpenAI using the connected ChatGPT
+plan. Recognition and frame sampling can miss content. Results include evidence,
+require review when uncertain, and never edit the creative. See the included
+docs/PHONE_CHECKS.md and DATA_HANDLING.md.
 
 ## Updates and integrity
 
