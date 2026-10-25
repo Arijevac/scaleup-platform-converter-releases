@@ -1,7 +1,7 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 **portable downloads and updates**. Current stable release:
-[1.1.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.1.0).
+[1.2.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.2.0).
 
 This repository contains release artifacts and download documentation. Application
 source is maintained separately in a **private repository**; the application is
@@ -18,6 +18,17 @@ is required. Keep videos and personal files outside the application folder.
 Open videos in separate tabs, choose a platform and click Convert. Original backups are
 enabled by default in Windows Videos / ScaleUP Backups. Header Backup settings changes the location or disables future backups. Technical conversion
 is local. Selected Roku AI checks send sampled video frames to OpenAI when connected; see DATA_HANDLING.md inside the portable folder.
+
+## Appearance and About
+
+Version 1.2.0 adds saved Light and Dark themes under **AI settings > Appearance > Theme**.
+Switch immediately without restarting or changing video jobs, AI findings or
+exported media. The agency logo is blue in Light and white in Dark.
+
+Click the header version badge for **About**, release notes, component licenses,
+data/AI documentation and team/company contacts. **Copy technical info** copies
+runtime versions and display settings without video paths or account details.
+The About window stays available while processing continues.
 
 ## Multiple videos and optional AI checks
 
@@ -55,7 +66,10 @@ docs/PHONE_CHECKS.md and DATA_HANDLING.md.
 
 The app checks at startup and every four hours. An inline notice waits until
 technical processing, AI work and dialogs finish; it does not interrupt editing
-or take focus. Choose Update now or Later.
+or take focus. About > **Check for updates** runs a manual check without
+installing. Choose **Update now** or **Later** in the main notice. Installation
+waits for work across all tabs to finish. After restart a fresh empty tab opens;
+reopen videos as needed.
 
 Updates validate SHA-256 and the complete file inventory, replace managed files
 inside the same program folder, and keep previous program files under
