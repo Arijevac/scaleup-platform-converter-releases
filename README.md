@@ -1,7 +1,7 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 **portable downloads and updates**. Current stable release:
-[1.0.4](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.0.4).
+[1.1.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.1.0).
 
 This repository contains release artifacts and download documentation. Application
 source is maintained separately in a **private repository**; the application is
@@ -15,15 +15,29 @@ extract the complete folder, and run **ScaleUP Platform Converter.exe**. Keep it
 EXE and accompanying files together. No installer, Python or Java installation
 is required. Keep videos and personal files outside the application folder.
 
-Choose a platform, drop a finished video and click Convert. Original backups are
-enabled by default in Windows Videos / ScaleUP Backups. Advanced options > Backup
-settings changes the location or disables future backups. Technical conversion
-is local. Connected Roku AI review automatically sends sampled video frames to
-OpenAI; see DATA_HANDLING.md inside the portable folder.
+Open videos in separate tabs, choose a platform and click Convert. Original backups are
+enabled by default in Windows Videos / ScaleUP Backups. Header Backup settings changes the location or disables future backups. Technical conversion
+is local. Selected Roku AI checks send sampled video frames to OpenAI when connected; see DATA_HANDLING.md inside the portable folder.
+
+## Multiple videos and optional AI checks
+
+Version 1.1.0 adds a refreshed light interface, independent video tabs and a
+shared queue: one local processing phase and two GPT requests at a time. Use
+`+` / **Ctrl+T** to add a tab and **X / Ctrl+W** to close it, up to eight tabs. Closing the
+last tab opens a fresh empty tab. Reopening a video resets its tab after cleanup
+and runs new analysis and selected checks. Output names, evidence and settings
+belong to their video; shared output reservations prevent collisions.
+
+Header AI settings contains the shared account/model and saved automatic choices
+for new videos. All AI checks are optional, initially enabled. Each video's AI
+checks contains its selections, manual runs and evidence. Roku checks apply to
+Roku; phone checks are available on all platforms. Automatic phone checking asks
+to confirm/edit a complete filename number, enter a number, or skip that video.
+Findings stay in progress until final review and conversion validation settle.
 
 ## Optional phone checks
 
-Version 1.0.4 adds **AI checks > Phone number** for every platform. Enter the
+**AI checks > Phone number** is available for every platform. Confirm the
 expected number once; results separately check visible digits, written format,
 spoken digits and consistent use of a spoken leading 1. Graphics and speech may
 use different forms. Roku and phone reviews can run in parallel after technical
