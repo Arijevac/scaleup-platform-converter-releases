@@ -1,7 +1,7 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 **portable downloads and updates**. Current stable release:
-[1.2.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.2.0).
+[1.3.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.3.0).
 
 This repository contains release artifacts and download documentation. Application
 source is maintained separately in a **private repository**; the application is
@@ -44,12 +44,13 @@ for new videos. All AI checks are optional, initially enabled. Each video's AI
 checks contains its selections, manual runs and evidence. Roku checks apply to
 Roku; phone checks are available on all platforms. Automatic phone checking asks
 to confirm/edit a complete filename number, enter a number, or skip that video.
-Findings stay in progress until final review and conversion validation settle.
+Completed phone audio findings can appear while visual review continues. Positive
+results also wait for active conversion validation.
 
 ## Optional phone checks
 
 **AI checks > Phone number** is available for every platform. Confirm the
-expected number once; results separately check visible digits, written format,
+expected number once; results separately check visible digits, graphic leading 1,
 spoken digits and consistent use of a spoken leading 1. Graphics and speech may
 use different forms. Roku and phone reviews can run in parallel after technical
 analysis, without waiting for each other or blocking technical Convert.
@@ -61,6 +62,27 @@ sampled frames and transcript text are sent to OpenAI using the connected ChatGP
 plan. Recognition and frame sampling can miss content. Results include evidence,
 require review when uncertain, and never edit the creative. See the included
 docs/PHONE_CHECKS.md and DATA_HANDLING.md.
+
+## Software status — 1.3.0
+
+Based on internal regression tests and the team's manual advertising-video collection:
+
+- **Technical file preparation is very reliable** in the supported, tested platform
+  workflows: FPS, dimensions, format/codecs, video/audio bitrates, specified audio
+  targets and bounded duration alignment. Actual output is validated before source
+  replacement, with original backups enabled by default.
+- **AI content review has reliably identified clear real errors** in the tested
+  collection. Occasional **false-positive findings** flag correct content for
+  review, especially around animations or recognition uncertainty. Editors retain
+  the final visual/listening decision; AI findings do not block technical Convert.
+- AI review is sampled and recognition-based. A PASS does not certify the absence
+  of every error; false negatives are possible and formal error rates have not
+  been established. Rerun after external edits and review important phone/caption
+  endings after trimming. The package includes docs/SOFTWARE_STATUS.md.
+
+Version 1.3.0 adds chronological animation/sequential-caption checks, local
+confirmation of suspect speech, punctuation-independent leading-1 consistency,
+less TTY 711 clutter and bounded recovery of invalid replies/server overloads.
 
 ## Updates and integrity
 
