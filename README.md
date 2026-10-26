@@ -1,7 +1,11 @@
 # ScaleUP Platform Converter
 
-Official Windows x64 **portable downloads and updates**. Current stable release:
-[1.3.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.3.0).
+Official Windows x64 and Apple Silicon Mac **downloads and updates**. Current release:
+[1.4.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.4.0).
+Windows is the established portable edition; the first Mac edition is a preview.
+
+Version 1.4.0 adds native Mac integration while preserving the shared conversion
+and phone-review rules.
 
 This repository contains release artifacts and download documentation. Application
 source is maintained separately in a **private repository**; the application is
@@ -10,13 +14,26 @@ not stored in either repository.
 
 ## Download and use
 
-Download the versioned portable ZIP from [Releases](https://github.com/Arijevac/scaleup-platform-converter-releases/releases),
+**Windows:** download the versioned windows-x64-portable ZIP from [Releases](https://github.com/Arijevac/scaleup-platform-converter-releases/releases),
 extract the complete folder, and run **ScaleUP Platform Converter.exe**. Keep its
 EXE and accompanying files together. No installer, Python or Java installation
 is required. Keep videos and personal files outside the application folder.
 
+**Apple Silicon Mac (M1/M2/M3 and later):** download the macos-arm64 DMG, open it,
+drag **ScaleUP Platform Converter.app** into Applications and launch the installed
+copy. The ZIP is an alternative app archive. No Python, Homebrew or emulator is
+needed. Minimum macOS 14.4; automated native tests use macOS 15. Editor acceptance
+on M3/macOS 26, native folder permissions and real ChatGPT login remain pending.
+Intel Macs are not supported by this build.
+
+The first Mac edition has an ad-hoc signature without Apple Developer ID or
+notarization. Gatekeeper/company policy may block first launch; have the official
+test artifact approved through normal macOS/company processes. Keep system
+protections enabled. Connect ChatGPT separately on Mac; Keychain protects its
+sign-in. The app includes a Mac installation and editor checklist.
+
 Open videos in separate tabs, choose a platform and click Convert. Original backups are
-enabled by default in Windows Videos / ScaleUP Backups. Header Backup settings changes the location or disables future backups. Technical conversion
+enabled by default in Videos / ScaleUP Backups on Windows and Movies / ScaleUP Backups on Mac. Header Backup settings changes the location or disables future backups. Technical conversion
 is local. Selected Roku AI checks send sampled video frames to OpenAI when connected; see DATA_HANDLING.md inside the portable folder.
 
 ## Appearance and About
@@ -56,14 +73,15 @@ use different forms. Roku and phone reviews can run in parallel after technical
 analysis, without waiting for each other or blocking technical Convert.
 
 English speech recognition runs locally on the CPU. First use automatically
-downloads about 497 MB of pinned, SHA-256-verified speech support into LocalAppData,
-outside the program folder and reused across updates. Audio is not uploaded;
+downloads pinned, SHA-256-verified speech support (about 497 MB on Windows or
+488 MB on Mac), outside the app and reused across updates. Windows uses
+LocalAppData; Mac uses the application data folder in Library/Application Support. Audio is not uploaded;
 sampled frames and transcript text are sent to OpenAI using the connected ChatGPT
 plan. Recognition and frame sampling can miss content. Results include evidence,
 require review when uncertain, and never edit the creative. See the included
 docs/PHONE_CHECKS.md and DATA_HANDLING.md.
 
-## Software status — 1.3.0
+## Software status — 1.4.0
 
 Based on internal regression tests and the team's manual advertising-video collection:
 
@@ -93,15 +111,20 @@ installing. Choose **Update now** or **Later** in the main notice. Installation
 waits for work across all tabs to finish. After restart a fresh empty tab opens;
 reopen videos as needed.
 
-Updates validate SHA-256 and the complete file inventory, replace managed files
+On Windows, updates validate SHA-256 and the complete file inventory, replace managed files
 inside the same program folder, and keep previous program files under
 `%LOCALAPPDATA%/ScaleUP Platform Converter/updates/<id>/previous-version`.
 Startup failure attempts recovery. Settings and protected ChatGPT sign-in stay
 in LocalAppData. The old folder-swap transition applies only to updates started
 by versions 0.1.15 and earlier.
 
-Each release contains a versioned ZIP, its `.sha256` file and
-`scaleup-update.json`. Never rename/replace published assets; new builds use new
+Mac updates use their own manifest, safe bundle inventory and native code-signature
+checks. Replacement/restart and failed-startup rollback preserve settings,
+Keychain sign-in and separately stored model/evidence data. Windows and Mac
+packages are built from the same version; their native adapters remain separate.
+
+Release 1.4.0 contains the Windows ZIP and Mac ZIP/DMG, matching `.sha256` files,
+Windows `scaleup-update.json` and Mac `scaleup-update-macos-arm64.json`. Never rename/replace published assets; new builds use new
 versions. **The EXE is unsigned.** Hashes verify agreement with published
 metadata, not independent publisher identity or freedom from vulnerabilities.
 Do not disable Windows protection to run the app; company IT can review the
