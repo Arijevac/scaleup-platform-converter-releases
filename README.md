@@ -1,11 +1,13 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 and Apple Silicon Mac **downloads and updates**. Current release:
-[1.4.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.4.0).
-Windows is the established portable edition; the first Mac edition is a preview.
+[1.5.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.5.0).
+Windows is the established portable edition; the Mac edition remains a preview.
 
-Version 1.4.0 adds native Mac integration while preserving the shared conversion
-and phone-review rules.
+Version 1.5.0 adds independent optional Content and Phone panels for every
+platform, adjustable GPT parallelism, OTSM 90/120-second master or ad-only output,
+Kayzen nominal 120-second support and clearer Evidence issue navigation.
+Windows and Mac use the same shared implementation with separate native adapters.
 
 This repository contains release artifacts and download documentation. Application
 source is maintained separately in a **private repository**; the application is
@@ -26,7 +28,7 @@ needed. Minimum macOS 14.4; automated native tests use macOS 15. Editor acceptan
 on M3/macOS 26, native folder permissions and real ChatGPT login remain pending.
 Intel Macs are not supported by this build.
 
-The first Mac edition has an ad-hoc signature without Apple Developer ID or
+The Mac edition has an ad-hoc signature without Apple Developer ID or
 notarization. Gatekeeper/company policy may block first launch; have the official
 test artifact approved through normal macOS/company processes. Keep system
 protections enabled. Connect ChatGPT separately on Mac; Keychain protects its
@@ -34,7 +36,7 @@ sign-in. The app includes a Mac installation and editor checklist.
 
 Open videos in separate tabs, choose a platform and click Convert. Original backups are
 enabled by default in Videos / ScaleUP Backups on Windows and Movies / ScaleUP Backups on Mac. Header Backup settings changes the location or disables future backups. Technical conversion
-is local. Selected Roku AI checks send sampled video frames to OpenAI when connected; see DATA_HANDLING.md inside the portable folder.
+is local. Confirmed optional AI checks send sampled video frames to OpenAI when connected; see DATA_HANDLING.md inside the portable folder.
 
 ## Appearance and About
 
@@ -50,26 +52,29 @@ The About window stays available while processing continues.
 ## Multiple videos and optional AI checks
 
 Version 1.1.0 adds a refreshed light interface, independent video tabs and a
-shared queue: one local processing phase and two GPT requests at a time. Use
+shared queue: one local processing phase and three GPT requests by default.
+AI settings offers a saved 2-5 request slider; 3 is recommended, while 5 is
+experimental. Other editors/apps using the same account add to its total load. Use
 `+` / **Ctrl+T** to add a tab and **X / Ctrl+W** to close it, up to eight tabs. Closing the
 last tab opens a fresh empty tab. Reopening a video resets its tab after cleanup
 and runs new analysis and selected checks. Output names, evidence and settings
 belong to their video; shared output reservations prevent collisions.
 
-Header AI settings contains the shared account/model and saved automatic choices
-for new videos. All AI checks are optional, initially enabled. Each video's AI
-checks contains its selections, manual runs and evidence. Roku checks apply to
-Roku; phone checks are available on all platforms. Automatic phone checking asks
-to confirm/edit a complete filename number, enter a number, or skip that video.
-Completed phone audio findings can appear while visual review continues. Positive
-results also wait for active conversion validation.
+Header AI settings contains the shared account/model, parallel-request limit and
+Appearance settings. Each new video offers separate Content and Phone panels:
+confirm the checks you want or Skip. Logo/website and ADVERTISEMENT checks work
+on every platform and appear in the table only after confirmation. Each video's
+AI checks contains manual Run now actions and evidence, including after Skip.
+Phone checking asks to confirm/edit a complete filename number, enter one, or
+skip that video. Completed phone audio findings can appear while visual review
+continues. Positive results also wait for active conversion validation.
 
 ## Optional phone checks
 
 **AI checks > Phone number** is available for every platform. Confirm the
 expected number once; results separately check visible digits, graphic leading 1,
 spoken digits and consistent use of a spoken leading 1. Graphics and speech may
-use different forms. Roku and phone reviews can run in parallel after technical
+use different forms. Content and phone reviews can run in parallel after technical
 analysis, without waiting for each other or blocking technical Convert.
 
 English speech recognition runs locally on the CPU. First use automatically
@@ -81,7 +86,7 @@ plan. Recognition and frame sampling can miss content. Results include evidence,
 require review when uncertain, and never edit the creative. See the included
 docs/PHONE_CHECKS.md and DATA_HANDLING.md.
 
-## Software status — 1.4.0
+## Software status — 1.5.0
 
 Based on internal regression tests and the team's manual advertising-video collection:
 
@@ -101,6 +106,17 @@ Based on internal regression tests and the team's manual advertising-video colle
 Version 1.3.0 adds chronological animation/sequential-caption checks, local
 confirmation of suspect speech, punctuation-independent leading-1 consistency,
 less TTY 711 clutter and bounded recovery of invalid replies/server overloads.
+
+## OTSM output and Evidence
+
+OTSM supports nominal 90- and 120-second ads. Choose Complete master or Ad only
+output; Ad only skips slate details and leader/tail packaging. Complete master
+retains the specified slate/black layout. Kayzen nominal 120 follows its existing
+119-second delivery rule and bounded duration fit.
+
+Evidence uses red Mismatch and amber Review labels, issue counts, first-issue
+focus and Previous/Next issue navigation. Saved explanations appear below the
+image. These display improvements do not change detection or verdict rules.
 
 ## Updates and integrity
 
@@ -123,7 +139,7 @@ checks. Replacement/restart and failed-startup rollback preserve settings,
 Keychain sign-in and separately stored model/evidence data. Windows and Mac
 packages are built from the same version; their native adapters remain separate.
 
-Release 1.4.0 contains the Windows ZIP and Mac ZIP/DMG, matching `.sha256` files,
+Release 1.5.0 contains the Windows ZIP and Mac ZIP/DMG, matching `.sha256` files,
 Windows `scaleup-update.json` and Mac `scaleup-update-macos-arm64.json`. Never rename/replace published assets; new builds use new
 versions. **The EXE is unsigned.** Hashes verify agreement with published
 metadata, not independent publisher identity or freedom from vulnerabilities.
