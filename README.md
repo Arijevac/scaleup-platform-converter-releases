@@ -1,12 +1,15 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 and Apple Silicon Mac **downloads and updates**. Current release:
-[1.5.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.5.0).
+[1.6.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.6.0).
 Windows is the established portable edition; the Mac edition remains a preview.
 
-Version 1.5.0 adds independent optional Content and Phone panels for every
-platform, adjustable GPT parallelism, OTSM 90/120-second master or ad-only output,
-Kayzen nominal 120-second support and clearer Evidence issue navigation.
+Version 1.6.0 adds Automatic / End fit / Speed fit duration correction, reliable
+AI evidence mapping through OTSM ad/master exports, amber Mixed leading-1
+warnings, clearer tab indicators and a separate Measurements view. Universal
+project output now requires stereo; new OTSM slates are black and accept
+hyphens in ISCI/Ad-ID values. Phone recognition and GPT classification remain
+unchanged. See the release notes for details.
 Windows and Mac use the same shared implementation with separate native adapters.
 
 This repository contains release artifacts and download documentation. Application
@@ -86,7 +89,7 @@ plan. Recognition and frame sampling can miss content. Results include evidence,
 require review when uncertain, and never edit the creative. See the included
 docs/PHONE_CHECKS.md and DATA_HANDLING.md.
 
-## Software status — 1.5.0
+## Software status — 1.6.0
 
 Based on internal regression tests and the team's manual advertising-video collection:
 
