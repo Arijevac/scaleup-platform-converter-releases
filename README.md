@@ -1,15 +1,18 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 and Apple Silicon Mac **downloads and updates**. Current release:
-[1.6.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.6.0).
+[1.7.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.7.0).
 Windows is the established portable edition; the Mac edition remains a preview.
 
-Version 1.6.0 adds Automatic / End fit / Speed fit duration correction, reliable
-AI evidence mapping through OTSM ad/master exports, amber Mixed leading-1
-warnings, clearer tab indicators and a separate Measurements view. Universal
-project output now requires stereo; new OTSM slates are black and accept
-hyphens in ISCI/Ad-ID values. Phone recognition and GPT classification remain
-unchanged. See the release notes for details.
+Version 1.7.0 improves phone review by ignoring unreadable or hard-to-read
+incidental scene writing while preserving checks on readable wrong numbers and
+intended phone graphics, captions and animations. Stronger source-bound temporal
+evidence and clearer progress accompany new Processing settings. Windows
+Automatic speech prefers available NVIDIA CUDA, then AMD Vulkan, then CPU, with
+CPU fallback. Mac Automatic retains CPU; Metal is optional. GPU speech runtime
+libraries are included in the Windows ZIP; a compatible installed driver is
+required, without a separate CUDA Toolkit installation.
+See the release notes for details.
 Windows and Mac use the same shared implementation with separate native adapters.
 
 This repository contains release artifacts and download documentation. Application
@@ -80,7 +83,7 @@ spoken digits and consistent use of a spoken leading 1. Graphics and speech may
 use different forms. Content and phone reviews can run in parallel after technical
 analysis, without waiting for each other or blocking technical Convert.
 
-English speech recognition runs locally on the CPU. First use automatically
+English speech recognition runs locally using the selected CPU/GPU backend. First use automatically
 downloads pinned, SHA-256-verified speech support (about 497 MB on Windows or
 488 MB on Mac), outside the app and reused across updates. Windows uses
 LocalAppData; Mac uses the application data folder in Library/Application Support. Audio is not uploaded;
@@ -89,7 +92,7 @@ plan. Recognition and frame sampling can miss content. Results include evidence,
 require review when uncertain, and never edit the creative. See the included
 docs/PHONE_CHECKS.md and DATA_HANDLING.md.
 
-## Software status — 1.6.0
+## Software status — 1.7.0
 
 Based on internal regression tests and the team's manual advertising-video collection:
 
@@ -142,7 +145,7 @@ checks. Replacement/restart and failed-startup rollback preserve settings,
 Keychain sign-in and separately stored model/evidence data. Windows and Mac
 packages are built from the same version; their native adapters remain separate.
 
-Release 1.5.0 contains the Windows ZIP and Mac ZIP/DMG, matching `.sha256` files,
+Release 1.7.0 contains the Windows ZIP and Mac ZIP/DMG, matching `.sha256` files,
 Windows `scaleup-update.json` and Mac `scaleup-update-macos-arm64.json`. Never rename/replace published assets; new builds use new
 versions. **The EXE is unsigned.** Hashes verify agreement with published
 metadata, not independent publisher identity or freedom from vulnerabilities.
