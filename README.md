@@ -1,8 +1,14 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 and Apple Silicon Mac **downloads and updates**. Current release:
-[1.7.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.7.0).
+[1.8.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.8.0).
 Windows is the established portable edition; the Mac edition remains a preview.
+
+Version 1.8.0 adds 120-second project slots to Universal, Roku, both Amazon US
+presets and FreeWheel. Each preset uses its own FPS and frame rounding. Roku
+and Amazon display delivery REVIEW on the 120-second project slot. When audio
+already needs re-encoding, levels near a loudness boundary now trigger
+normalization toward the preset target on the first attempt.
 
 Version 1.7.0 improves phone review by ignoring unreadable or hard-to-read
 incidental scene writing while preserving checks on readable wrong numbers and
