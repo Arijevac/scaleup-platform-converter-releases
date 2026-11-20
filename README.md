@@ -1,8 +1,13 @@
 # ScaleUP Platform Converter
 
 Official Windows x64 and Apple Silicon Mac **downloads and updates**. Current release:
-[1.8.0](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.8.0).
+[1.8.1](https://github.com/Arijevac/scaleup-platform-converter-releases/releases/tag/v1.8.1).
 Windows is the established portable edition; the Mac edition remains a preview.
+
+Version 1.8.1 fixes Universal Linear ProRes exports exceeding the 220 Mbps
+video bitrate ceiling. An output-aware encoder budget and one bounded measured
+retry retain the allowed ProRes variant and the existing final validation.
+Compliant files and copied video streams remain untouched.
 
 Version 1.8.0 adds 120-second project slots to Universal, Roku, both Amazon US
 presets and FreeWheel. Each preset uses its own FPS and frame rounding. Roku
